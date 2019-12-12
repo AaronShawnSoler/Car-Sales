@@ -5,8 +5,7 @@ export const initialState = {
     car: {
       price: 26395,
       name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+      image: 'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
       features: []
     },
     additionalFeatures: [
@@ -24,7 +23,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 car: {
-                    price: state.car.price,
+                    price: state.car.price + action.payload.price,
                     name: state.car.name,
                     image: state.car.image,
                     features: [
@@ -37,7 +36,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 car: {
-                    price: state.car.price,
+                    price: state.car.price - action.payload.price,
                     name: state.car.name,
                     image: state.car.image,
                     features: state.car.features.filter(feature => feature !== action.payload)
